@@ -28,15 +28,13 @@ end
 M.define_command = function()
     vim.api.nvim_create_user_command('PlugConfig',
 	function(opts)
-	    if opts.nargs ~= 1 then
-		vim.notify("Only 1 argument can be accepted!", vim.log.levels.ERROR)
-	    else
 		require('nvim-plug').edit_config(opts.args)
-	    end
 	end,
 	{
 	nargs = 1,
-	complete = require('nvim-plug.load_config').plugs()
+	complete = function(A, L, C)
+		require('nvim-plug.load_config').plugs(A, L, C)
+	end,
 	}
     )
 end
