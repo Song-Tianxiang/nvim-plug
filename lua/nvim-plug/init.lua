@@ -34,7 +34,10 @@ M.define_command = function()
 		require('nvim-plug').edit_config(opts.args)
 	    end
 	end,
-	{complete = require('nvim-plug.load_config').plugs()}
+	{
+	nargs = 1,
+	complete = require('nvim-plug.load_config').plugs()
+	}
     )
 end
 
