@@ -23,7 +23,7 @@ end
 M.load_config = function(plug)
     local path = M.config_path(plug)
     if vim.fn.empty(vim.fn.glob(path)) == 0 then
-	vim.cmd("source " .. path)
+	vim.cmd("silent! source " .. path)
     end
 end
 
