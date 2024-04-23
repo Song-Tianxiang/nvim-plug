@@ -3,5 +3,6 @@ local vimplugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/p
 if vim.fn.filereadable(vimplugfile) == 0 then
 	vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', vimplugfile, vimplugurl))
 	vim.cmd('source ' .. vimplugfile)
+	vim.cmd('let &rtp = &rtp')
 	vim.cmd[[ autocmd VimEnter * PlugInstall! --sync | source $MYVIMRC ]]
 end
