@@ -1,6 +1,6 @@
 local M = {}
 
-local opts = require('nvimplug').opts
+local opts = require('nvim-plug').opts
 
 M.pluglist = vim.fn.reverse(vim.fn.deepcopy(vim.g.plugs_order))
 
@@ -14,22 +14,22 @@ M.plugs = function()
     return vim.fn.join(M.pluglist, '\n')
 end
 
-M.editconfig = function(plug)
+M.edit_config = function(plug)
     local path = M.config_path(plug)
     
     vim.cmd(opts.plug_config_edit_cmd .. " " .. path)
 end
 
-M.loadconfig = function(plug)
+M.load_config = function(plug)
     local path = M.config_path(plug)
     if vim.uv.fs_stat(path) then
 	vim.cmd("source " .. path)
     end
 end
 
-M.loadallconfig = function()
+M.load_all_config = function()
     for plug in vim.iter(M.pluglist) do
-	M.loadconfig(plug)
+	M.load_config(plug)
     end
 end
 
