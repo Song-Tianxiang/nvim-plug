@@ -28,12 +28,12 @@ end
 M.define_command = function()
     vim.api.nvim_create_user_command('PlugConfig',
 	function(opts)
-		require('nvim-plug').edit_config(opts.args)
+		require('nvim-plug.load_config').edit_config(opts.args)
 	end,
 	{
 	nargs = 1,
 	complete = function(A, L, C)
-		require('nvim-plug.load_config').plugs(A, L, C)
+		return require('nvim-plug.load_config').plugs()
 	end,
 	}
     )
