@@ -7,12 +7,12 @@ M.opts = {
 }
 
 M.setup = function(plugins, opts)
-    require('nvimplug').plug_regist(plugins)
+    require('nvimplug.plug_regist').plugregist(plugins)
 
     M.opts = vim.tbl_deep_extend('force', M.opts, opts or {})
 
     if M.opts.plug_config_loadall then
-	M.loadallconfig()
+	require('nvimplug.load_config').loadallconfig()
     end
 
 end
