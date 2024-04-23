@@ -22,7 +22,7 @@ end
 
 M.load_config = function(plug)
     local path = M.config_path(plug)
-    if not vim.fn.empty(vim.fn.glob(path)) then
+    if vim.fn.empty(vim.fn.glob(path)) == 0 then
 	vim.cmd("source " .. path)
     end
 end
