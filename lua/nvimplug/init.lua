@@ -7,7 +7,7 @@ M.opts = {
 }
 
 M.setup = function(plugins, opts)
-    require('nvimplug.plug_regist').plugregist(plugins)
+    require('nvimplug.plug_regist').plug_regist(plugins)
 
     M.opts = vim.tbl_deep_extend('force', M.opts, opts or {})
 
