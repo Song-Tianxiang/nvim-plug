@@ -21,9 +21,10 @@ M.edit_config = function(plug)
 end
 
 M.load_config = function(plug)
+	local dir = M.pluglist[plug]['dir']
     local path = M.config_path(plug)
-    if vim.fn.empty(vim.fn.glob(path)) == 0 then
-	vim.cmd("silent! source " .. path)
+    if vim.fn.empty(vim.fn.glob(path)) == 0 and vim.fn.empty(vim.fn.glob(dir)) == 0 then
+	vim.cmd("source " .. path)
     end
 end
 
