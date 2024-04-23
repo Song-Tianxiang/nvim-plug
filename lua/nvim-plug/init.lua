@@ -13,7 +13,7 @@ M.setup = function(plugins, opts)
     require('nvim-plug.boot_vimplug')
 
     local plugins = plugins or {}
-    table.insert(plugins, 1, { 'Song-Tianxiang/nvim-plug' dir = vim.fs.normalize(vim.fn.stdpath('data') .. '/nvim-plug/nvim-plug') } )
+    table.insert(plugins, 1, { 'Song-Tianxiang/nvim-plug', dir = vim.fs.normalize(vim.fn.stdpath('data') .. '/nvim-plug/nvim-plug') } )
     table.insert(plugins, 2, { 'junegunn/vim-plug' } )
     require('nvim-plug.plug_register').plug_register(plugins, plug_config_plug_home)
 
