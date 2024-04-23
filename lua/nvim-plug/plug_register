@@ -1,6 +1,6 @@
 local M = {}
 
-M.plug_regist = function(plugins)
+M.plug_register = function(plugins)
     vim.fn['plug#begin']()
 
     for plugin in vim.iter(plugins) do
