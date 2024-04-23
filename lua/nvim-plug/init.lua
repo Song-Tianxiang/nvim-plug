@@ -16,6 +16,9 @@ M.setup = function(plugins, opts)
     table.insert(plugins, 1, { 'Song-Tianxiang/nvim-plug', dir = vim.fs.normalize(vim.fn.stdpath('data') .. '/nvim-plug/nvim-plug') } )
     table.insert(plugins, 2, { 'junegunn/vim-plug' } )
     require('nvim-plug.plug_register').plug_register(plugins, plug_config_plug_home)
+	if vim.g.plug_config_bootstrap then
+		vim.cmd[[ PlugInstall --sync | lua require('nvim-plug.plug_register').plug_register(plugins, plug_config_plug_home) ]]
+	end
 
     if M.opts.plug_config_loadall then
 	require('nvim-plug.load_config').load_all_config()
